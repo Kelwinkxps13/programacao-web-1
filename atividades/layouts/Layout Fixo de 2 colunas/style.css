@@ -1,0 +1,20 @@
+#wrapper{
+    width: 750px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid black;
+    padding: 0px;
+}
+#sec{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    background: orange;
+}
+#main{
+    position: relative;
+    margin-left: 225px;
+    background-color: yellow;
+}

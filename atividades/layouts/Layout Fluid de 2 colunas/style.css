@@ -1,0 +1,11 @@
+div.main{
+    width: 70%;
+    margin-right: 5%;
+    float: left;
+    background: yellow;
+}
+div.secondary{
+    width: 25%;
+    float: left;
+    background: orange;
+}
