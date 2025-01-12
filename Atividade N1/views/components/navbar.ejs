@@ -1,15 +1,25 @@
+<style>
+  body {
+      background-image: url('/images/aurora boreal.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      /* A imagem ficará fixa ao rolar */
+  }
+</style>
+
 <nav class="navbar navbar-expand bg-dark border-bottom border-body" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Site Pessoal</a>
+    <a class="navbar-brand" href="/">Site Pessoal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active" href="/">Sobre Mim</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="/portfolio">Portifólio</a>
         </li>
@@ -26,7 +36,7 @@
             <div class="d-flex align-items-center justify-content-center rounded-circle bg-primary"
               style="width: 30px; height: 30px; overflow: hidden;">
               <img
-                src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
+                src="/images/icon-profile-image.jpg"
                 alt="Profile" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
           </a>
@@ -39,7 +49,7 @@
             <li>
               <hr class="dropdown-divider" />
             </li>
-            <li><a class="dropdown-item" href="../../index.html">Logout</a></li>
+            <li><a class="dropdown-item" href="/users/login">Logout</a></li>
           </ul>
         </li>
       </ul>
