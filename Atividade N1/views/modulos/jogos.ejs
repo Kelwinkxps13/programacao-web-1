@@ -33,9 +33,21 @@
                             <%= f.description %>
                         </p>
                         <a href="#" class="btn btn-primary">Veja!</a>
+                        <a href="#" class="btn btn-warning">Editar</a>
+                        <a href="#" class="btn btn-danger">Excluir</a>
+                        
                     </div>
                 </div>
             </div>
             <% }); %>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form action="/jogos/create" method="get">
+                <button type="submit" class="btn btn-outline-primary float-end">
+                    Adicionar
+                </button>
+            </form>
+        </div>
     </div>
 </div>
