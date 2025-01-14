@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Deadman Wonderland",
+    "description": "essa é uma descrição",
+    "image": "/images/animes/photo - detoro wonderlendeta.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Gabriel Drop-Out",
+    "description": null,
+    "image": "/images/animes/photo -gabriel drop-out.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Yu-Gi-Oh Classic",
+    "description": null,
+    "image": "/images/animes/photo - yugioh classic[.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Tonikaku Kwaii",
+    "description": null,
+    "image": "/images/animes/photo - tonikawa.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Little Witch Academia",
+    "description": null,
+    "image": "/images/animes/photo - little witch academia.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Black Clover",
+    "description": null,
+    "image": "/images/animes/photo - black clover.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Shigatsu Wa Kimi no Uso",
+    "description": null,
+    "image": "/images/animes/photo - shigatsu.jpg"
+  }
+]
