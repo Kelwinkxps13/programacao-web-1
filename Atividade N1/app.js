@@ -1,3 +1,21 @@
+
+// o que ainda tenho que fazer pra deixar o projeto minimamente usavel:
+
+// - crud basico dos cards ;
+// - autenticacao de login ;
+// - banco de dados verdadeiro usando mysql ;
+// - pagina que vem depois que voce clica em "Veja!" no card, para cada card ;
+// - melhorar o layout e design ;
+
+// o que talvez eu faça:
+
+// - diferenciar os usuarios do tipo comum, e do tipo admin, como por exemplo:
+//   se o usuario for admin, ele consegue modificar os cards .
+//   senao ele so poderá ver ;
+
+
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -31,12 +49,12 @@ app.use('/jogos', jogosRouter);
 app.use('/portfolio', portfolioRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
