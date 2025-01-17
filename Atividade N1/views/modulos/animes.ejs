@@ -1,55 +1,56 @@
+<%- include('../components/layout_sup') %>
+    <h2 class="text-center my-3 text-white">Animes</h2>
 
-<h2 class="text-center my-3 text-white">Animes</h2>
-
-<div class="mt-4 text-white">
-    <p class="text-center">Essa é a parte reservada para mostrar alguns animes de interesse, e rankear-los em uma
-        tabela</p>
-</div>
+    <div class="mt-4 text-white">
+        <p class="text-center">Essa é a parte reservada para mostrar alguns animes de interesse, e rankear-los em uma
+            tabela</p>
+    </div>
 
 
-<div class="container text-white">
-    <div class="row">
+    <div class="container text-white">
+        <div class="row">
 
-        <h4 class="text-center my-5">
-            Alguns Animes de interesse
-        </h4>
+            <h4 class="text-center my-5">
+                Alguns Animes de interesse
+            </h4>
 
-        <!-- card base -->
-        <% db_url.forEach(f=> { %>
-            <div class="col-4 my-3">
-                <div class="card bg-dark text-white" style="width: 18rem;">
-                    <div class="d-flex align-items-center justify-content-center bg-primary"
-                        style="width: 286px; height: 286px; overflow: hidden;">
-                        <% if(f.image===0 || f.image==='' ){ %>
-                            <img src="/images/no image.png" alt="Profile"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                            <% }else{ %>
-                                <img src="<%= f.image %>" alt="Profile"
+            <!-- card base -->
+            <% db_url.forEach(f=> { %>
+                <div class="col-4 my-3">
+                    <div class="card bg-dark text-white" style="width: 18rem;">
+                        <div class="d-flex align-items-center justify-content-center bg-primary"
+                            style="width: 286px; height: 286px; overflow: hidden;">
+                            <% if(f.image===0 || f.image==='' ){ %>
+                                <img src="/images/no image.png" alt="Profile"
                                     style="width: 100%; height: 100%; object-fit: cover;">
-                                <% } %>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= f.title %>
-                        </h5>
-                        <p class="card-text">
-                            <%= f.description %>
-                        </p>
-                        <a href="#" class="btn btn-primary">Veja!</a>
-                        <a href="#" class="btn btn-warning">Editar</a>
-                        <a href="#" class="btn btn-danger">Excluir</a>
+                                <% }else{ %>
+                                    <img src="<%= f.image %>" alt="Profile"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                    <% } %>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= f.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= f.description %>
+                            </p>
+                            <a href="animes/nome/<%= f.id %>" class="btn btn-primary">Veja!</a>
+                            <a href="#" class="btn btn-warning">Editar</a>
+                            <a href="#" class="btn btn-danger">Excluir</a>
+                        </div>
                     </div>
                 </div>
+                <% }); %>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/animes/create" method="get">
+                    <button type="submit" class="btn btn-outline-primary float-end">
+                        Adicionar
+                    </button>
+                </form>
             </div>
-            <% }); %>
-    </div>
-    <div class="row">
-        <div class="col">
-            <form action="/animes/create" method="get">
-                <button type="submit" class="btn btn-outline-primary float-end">
-                    Adicionar
-                </button>
-            </form>
         </div>
     </div>
-</div>
+    <%- include('../components/layout_inf') %>

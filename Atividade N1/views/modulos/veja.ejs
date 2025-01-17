@@ -1,0 +1,18 @@
+<%- include('../components/layout_sup') %>
+<div class="container mt-4">
+    <div class="row">
+        <!-- About Section -->
+        <div class="col-12 mb-4">
+            <h2 class="text-info">Sobre <%= db_url.title %></h2>
+            <p class="text-light"><%= db_url.long_description.about.text %></p>
+        </div>
+
+        <!-- For Me Section -->
+        <div class="col-12">
+            <h2 class="text-info">O que <%= db_url.title %> significa para mim</h2>
+            <p class="text-light"><%= db_url.long_description.for_me.text %></p>
+        </div>
+    </div>
+</div>
+
+<%- include('../components/layout_inf') %>

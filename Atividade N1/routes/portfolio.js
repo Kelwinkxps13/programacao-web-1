@@ -20,21 +20,73 @@ const saveDbData = (data) => {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const db = getDbData(); // Carregar os dados do JSON
-  res.render('components/main', { 
+  res.render('modulos/portfolio', { 
     title: 'Portifólio', 
     content: '../modulos/portfolio',
     db_url: db // Passando os dados para o template
   });
 });
 
+router.get('/nome/:id', function (req, res, next) {
+  const id = parseInt(req.params.id); // Obtém o ID da rota e converte para número
+  const db = getDbData(); // Carrega os dados do JSON
+  
+  // Filtra o item correspondente ao ID
+  const k = db.find(item => item.id === id);
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('Portifólio não encontrado');
+  }
+
+  // Renderiza a página com os dados do anime correspondente
+  res.render('modulos/veja', {
+    title: k.title,
+    content: '../modulos/animes',
+    db_url: k // Passa os dados do anime para o template
+  });
+});
+
 router.get('/create', function(req, res, next) {
-  res.render('components/main', { 
+  res.render('modulos/create', { 
     title: 'Adicionar Portifólio',
     page: 'Portifólio',
+    url: 'portfolio',
     content: '../modulos/create',
     db_url: [] // Passa um array vazio para a criação de novos portfólios
   });
 });
+
+router.post('/', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const lastId = Math.max(...db.map(u => u.id), 0); // Pegando o último id e incrementando
+
+  const newData = {
+    id: lastId + 1, // Incrementa o id
+    title: req.body.title,
+    description: req.body.description,
+    image: req.body.image,
+    long_description: {
+      about: {
+        text: req.body.long_about_text
+      },
+      for_me: {
+        text: req.body.long_for_me_text
+      }
+    }
+  };
+
+  db.push(newData); // Adiciona o novo anime ao array
+
+  saveDbData(db); // Salva os dados atualizados de volta no arquivo JSON
+
+  res.render('modulos/portfolio', { 
+    title: 'Portifólio', 
+    content: '../modulos/portfolio',
+    db_url: db // Passando os dados para o template
+  });
+});
+
 
 module.exports = router;
 

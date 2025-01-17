@@ -1,3 +1,4 @@
+<%- include('../components/layout_sup') %>
 <h2 class="text-center my-3 text-white">Jogos</h2>
 
 <div class="mt-4 text-white">
@@ -32,7 +33,7 @@
                         <p class="card-text">
                             <%= f.description %>
                         </p>
-                        <a href="#" class="btn btn-primary">Veja!</a>
+                        <a href="jogos/nome/<%= f.id %>" class="btn btn-primary">Veja!</a>
                         <a href="#" class="btn btn-warning">Editar</a>
                         <a href="#" class="btn btn-danger">Excluir</a>
                         
@@ -51,3 +52,4 @@
         </div>
     </div>
 </div>
+<%- include('../components/layout_inf') %>
