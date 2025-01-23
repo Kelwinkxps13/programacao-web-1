@@ -14,6 +14,7 @@
         </h4>
 
         <% db_url.forEach(f=> { %>
+            <% if(f.is_deleted === false){%>
             <div class="col-4 my-3">
                 <div class="card bg-dark text-white" style="width: 18rem;">
                     <div class="d-flex align-items-center justify-content-center bg-primary"
@@ -35,11 +36,14 @@
                         </p>
                         <a href="jogos/nome/<%= f.id %>" class="btn btn-primary">Veja!</a>
                         <a href="#" class="btn btn-warning">Editar</a>
-                        <a href="#" class="btn btn-danger">Excluir</a>
+                        <form id="del" action="animes/" method="put">
+                            <a href="animes/" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('del')">Excluir</a>
+                        </form>
                         
                     </div>
                 </div>
             </div>
+            <% } %>
             <% }); %>
     </div>
     <div class="row">

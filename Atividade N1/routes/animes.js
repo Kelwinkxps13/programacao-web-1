@@ -87,6 +87,28 @@ router.post('/', function (req, res, next) {
   });
 });
 
+router.put('/:id', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.params.id;
+  const k = db.find(item => item.id === id);
+
+  k.is_deleted = true
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('Anime não encontrado');
+  }
+
+  db.push(k); // Adiciona o novo anime ao array
+
+  saveDbData(db);
+  // Renderiza a página com os dados do anime correspondente
+  res.render('modulos/animes', {
+    title: 'Animes',
+    content: '../modulos/animes',
+    db_url: db // Passa os dados de animes para o template
+  });
+});
 
 module.exports = router;
 
@@ -135,5 +157,3 @@ module.exports = router;
 //     db_url: db
 //   });
 // });
-
-// module.exports = router;

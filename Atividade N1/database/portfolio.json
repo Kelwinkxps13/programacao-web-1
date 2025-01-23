@@ -11,7 +11,8 @@
             "for_me": {
                 "text": "Este projeto foi um marco significativo na minha jornada de aprendizado em programação orientada a objetos! Trabalhar com Java Swing foi desafiador, principalmente devido à complexidade dos conceitos de interface gráfica. Mas, ao longo do desenvolvimento, fui capaz de superar essas dificuldades e entregar uma aplicação funcional e bem estruturada. Além disso, esse projeto foi uma oportunidade para testar minha capacidade de resolver problemas mais complexos, como a integração entre o frontend (interface) e o backend (lógica de negócios) de uma aplicação. Ao olhar para esse trabalho, sinto que realmente evoluí e estou mais preparado para enfrentar desafios no mundo da programação."
             }
-        }
+        },
+        "is_deleted": false
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@
             "for_me": {
                 "text": "Este projeto foi uma excelente oportunidade para consolidar e expandir os conhecimentos adquiridos durante o curso de PHP. Além de aprimorar minha habilidade em PHP, foi também uma chance de trabalhar com frameworks e bibliotecas úteis para o desenvolvimento web. A realização desse projeto não apenas me desafiou a aplicar conceitos mais avançados, mas também me deu a confiança de que sou capaz de desenvolver sistemas web completos. Foi uma experiência incrível que me motivou a continuar aprendendo e explorando o universo do desenvolvimento web."
             }
-        }
+        },
+        "is_deleted": false
     },
     {
         "id": 3,
@@ -39,7 +41,8 @@
             "for_me": {
                 "text": "Desenvolver o Monitoraí foi uma experiência incrível, pois pude trabalhar em um projeto voltado para a prática e atender a uma necessidade real da comunidade do IFCE. O desafio de criar uma aplicação que resolvesse problemas do dia a dia dos monitores me motivou a aprimorar minhas habilidades em design de interfaces, usabilidade e integração de funcionalidades. Além disso, o projeto me deu a oportunidade de testar o uso de diferentes tecnologias em um ambiente de produção. Fiquei muito satisfeito com o resultado final, pois acredito que o Monitoraí trouxe benefícios reais para os monitores e alunos do IFCE."
             }
-        }
+        },
+        "is_deleted": false
     },
     {
         "id": 4,
@@ -53,6 +56,7 @@
             "for_me": {
                 "text": "Embora o projeto ainda esteja inacabado, ele me ensinou muito sobre a estruturação de jogos, como controlar o fluxo de narrativa e implementar escolhas que afetam a história. Foi também uma oportunidade para explorar minha criatividade e tentar criar uma experiência única em Python. Quem sabe um dia eu volte para finalizar este projeto e fazer algo realmente legal. Mas, por agora, esse jogo continua como um ótimo aprendizado sobre programação e design de jogos!"
             }
-        }
+        },
+        "is_deleted": false
     }
 ]

@@ -11,7 +11,8 @@
       "for_me": {
         "text": "Um dos melhores jogos que já experimentei, com uma história que me emocionou profundamente e um mundo aberto incrivelmente imersivo. O detalhamento do cenário, a profundidade das missões e os dilemas morais que o protagonista enfrenta me fizeram refletir sobre o que significa viver fora da lei. Cada momento do jogo me fez sentir que estava realmente dentro daquele universo, explorando, caçando e interagindo com seus personagens complexos."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
       "for_me": {
         "text": "É um jogo que marcou minha infância e me fez explorar cada canto de sua vasta cidade. A enorme variedade de atividades, desde missões de história até pilotar aviões e carros esportivos, me proporcionaram uma sensação de liberdade única. Lembro-me das horas passadas jogando, seja em busca de uma missão ou apenas fazendo caos nas ruas de Los Santos. Além disso, a trilha sonora, a trama e os personagens memoráveis só aumentam a grandiosidade deste jogo."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
       "for_me": {
         "text": "Uma experiência nostálgica renovada, que trouxe o melhor do original com melhorias significativas. Desde os novos gráficos e a nova mecânica de combate até o refinamento dos diálogos e das cenas, esse remake me fez redescobrir um dos meus jogos favoritos de todos os tempos. Os sustos e a tensão que eu sentia na versão original foram amplificados, e isso tornou o jogo ainda mais envolvente. O fato de poder revisitar essa história com uma nova perspectiva foi uma verdadeira viagem no tempo."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@
       "for_me": {
         "text": "Um clássico que moldou minha visão sobre jogos de terror e ação. Foi o primeiro jogo da franquia que realmente me envolveu em uma trama intensa e com uma jogabilidade revolucionária para a época. As mecânicas de combate, o design de níveis e a introdução de novos inimigos foram inovadores, e o jogo me desafiou a repensar o gênero survival horror. É, sem dúvida, um dos jogos mais importantes da minha coleção."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 5,
@@ -67,7 +71,8 @@
       "for_me": {
         "text": "É um jogo que me manteve preso à tela, com uma atmosfera única e desafiadora. O cenário no navio abandonado me fez sentir o verdadeiro medo do desconhecido e da ameaça iminente. As mecânicas de sobrevivência, com a necessidade de administrar recursos e explorar cada canto, me fizeram imergir ainda mais na história. Além disso, a trama e os personagens, como Jill e Chris, são elementos essenciais que tornam a experiência ainda mais envolvente."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 6,
@@ -81,7 +86,8 @@
       "for_me": {
         "text": "É um dos jogos mais criativos que já joguei, com personagens memoráveis e uma trilha sonora incrível. A mistura de elementos de RPG com o mundo do Mario foi uma experiência única que me fez investir nas mecânicas de combate e na construção do mundo. Cada batalha, cada interação com os personagens e cada segredo escondido me fez sentir parte de algo grandioso. A magia do jogo ainda perdura, mesmo anos após seu lançamento."
       }
-    }
+    },
+    "is_deleted": false
   },
   {
     "id": 7,
@@ -95,6 +101,7 @@
       "for_me": {
         "text": "Uma experiência nostálgica com um toque moderno que reacendeu minha paixão por este clássico. Os gráficos atualizados, as novas animações e a sonoridade revitalizada me fizeram reviver as emoções que senti ao jogar a versão original, mas com um frescor que só um remake pode oferecer. Foi incrível revisitar esse jogo com uma nova perspectiva, aproveitando tanto o que foi mantido quanto as melhorias implementadas."
       }
-    }
+    },
+    "is_deleted": false
   }
 ]
