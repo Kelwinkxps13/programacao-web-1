@@ -37,12 +37,21 @@
                                 <p class="card-text">
                                     <%= f.description %>
                                 </p>
-                                <a href="animes/nome/<%= f.id %>" class="btn btn-primary">Veja!</a>
-                                <a href="#" class="btn btn-danger">Editar</a>
-                                <form id="del" action="animes/" method="put">
-                                    <a href="animes/<%= f.id %>" class="btn btn-warning"
-                                        onclick="event.preventDefault(); document.getElementById('del')">Excluir</a>
-                                </form>
+                                <div class="row">
+                                    <div class="col-4"><a href="animes/nome/<%= f.id %>"
+                                            class="btn btn-primary">Veja!</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="animes/edit/<%= f.id %>" method="get">
+                                            <button type="submit" class="btn btn-warning">Editar</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="/animes/att/<%= f.id %>" method="post">
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

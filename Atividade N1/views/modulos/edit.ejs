@@ -1,0 +1,44 @@
+<%- include('../components/layout_sup') %>
+<div class="container top-50 start-50 my-4">
+    <div class="row">
+        <div class="col-6 offset-3">
+
+            <div class="card bg-dark text-white">
+                <div class="card-header bg-success">
+                    Formulário de Edição de <%= page %>
+                </div>
+                <div class="card-body">
+                    <form action="/<%= url %>/edit" method="POST">
+                        <input type="hidden" name="id" value="<%= db.id %>">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Nome</label>
+                            <input name="title" type="text" class="form-control" value="<%= db.title %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descrição</label>
+                            <textarea name="description" rows="3" class="form-control"><%= db.description %></textarea>
+                        <!-- </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Adicionar Imagem</label> <br>
+                            <input name="image" type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div> -->
+
+                        <!-- Campos para long_description -->
+                        <div class="mb-3">
+                            <label for="long_about_text" class="form-label">Texto sobre</label>
+                            <textarea name="long_about_text" rows="3" class="form-control"><%= db.long_description.about.text %></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="long_for_me_text" class="form-label">Texto do que isso significa para mim</label>
+                            <textarea name="long_for_me_text" rows="3" class="form-control"><%= db.long_description.for_me.text %></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success float-end">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<%- include('../components/layout_inf') %>

@@ -1,0 +1,106 @@
+<%- include('../components/layout_sup') %>
+    <h2 class="text-center my-3 text-white">Portifólio</h2>
+
+    <div class="mt-4 text-white">
+        <p class="text-center">Essa é a parte reservada para mostrar alguns projetos que eu fiz ao longo dessa jornada
+            acadêmica, sejam de
+            escola, sozinho ou de cursos por fora.</p>
+    </div>
+
+    <div class="container text-white">
+        <div class="row">
+
+            <h4 class="text-center my-5">
+                Projetos
+            </h4>
+
+            <% db_url.forEach(f=> { %>
+                <% if(f.is_deleted===false){%>
+                    <div class="col-4 my-3">
+                        <div class="card bg-dark text-white" style="width: 18rem;">
+                            <div class="d-flex align-items-center justify-content-center bg-primary"
+                                style="width: 286px; height: 286px; overflow: hidden;">
+                                <% if(f.image===0 || f.image==='' ){ %>
+                                    <img src="/images/no image.png" alt="Profile"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                    <% }else{ %>
+                                        <img src="<%= f.image %>" alt="Profile"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                        <% } %>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= f.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= f.description %>
+                                </p>
+                                <div class="row">
+                                    <div class="col-4"><a href="portfolios/nome/<%= f.id %>"
+                                            class="btn btn-primary">Veja!</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="portfolios/edit/<%= f.id %>" method="get">
+                                            <button type="submit" class="btn btn-warning">Editar</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="/portfolios/att/<%= f.id %>" method="post">
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }); %>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/portfolios/create" method="get">
+                    <button type="submit" class="btn btn-outline-primary float-end">
+                        Adicionar
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <h4 class="text-center my-5">
+                Algumas Skills
+            </h4> -->
+            <div class="container mt-5">
+                <table class="table table-bordered text-center table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="table-primary">Algumas Skills</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Programming: I did academic work in a team, which involved the Python and Java
+                                programming languages.</td>
+                        </tr>
+                        <tr>
+                            <td>Teamwork: I collaborated with colleagues in academic activities, respecting and
+                                contributing to collective growth.</td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics Logic: I demonstrated logical and mathematical reasoning in mathematics
+                                Olympiads, in which I obtained three consecutive medals.</td>
+                        </tr>
+                        <tr>
+                            <td>🔥 Tech enthusiast</td>
+                        </tr>
+                        <tr>
+                            <td>🔭 I'm currently studying on <a href="https://ifce.edu.br/fortaleza"
+                                    target="_blank">Instituto Federal de Ciências e Tecnologia do Ceará - Campus
+                                    Fortaleza</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include('../components/layout_inf') %>

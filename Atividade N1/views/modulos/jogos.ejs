@@ -1,59 +1,69 @@
 <%- include('../components/layout_sup') %>
-<h2 class="text-center my-3 text-white">Jogos</h2>
+    <h2 class="text-center my-3 text-white">Jogos</h2>
 
-<div class="mt-4 text-white">
-    <p class="text-center">Essa é a parte reservada para mostrar alguns de meus jogos favoritos, e rankear-los.</p>
-</div>
-
-
-<div class="container text-white">
-    <div class="row">
-
-        <h4 class="text-center my-5">
-            Favoritos
-        </h4>
-
-        <% db_url.forEach(f=> { %>
-            <% if(f.is_deleted === false){%>
-            <div class="col-4 my-3">
-                <div class="card bg-dark text-white" style="width: 18rem;">
-                    <div class="d-flex align-items-center justify-content-center bg-primary"
-                        style="width: 286px; height: 286px; overflow: hidden;">
-                        <% if(f.image===0 || f.image==='' ){ %>
-                            <img src="/images/no image.png" alt="Profile"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                            <% }else{ %>
-                                <img src="<%= f.image %>" alt="Profile"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                                <% } %>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= f.title %>
-                        </h5>
-                        <p class="card-text">
-                            <%= f.description %>
-                        </p>
-                        <a href="jogos/nome/<%= f.id %>" class="btn btn-primary">Veja!</a>
-                        <a href="#" class="btn btn-warning">Editar</a>
-                        <form id="del" action="animes/" method="put">
-                            <a href="animes/" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('del')">Excluir</a>
-                        </form>
-                        
-                    </div>
-                </div>
-            </div>
-            <% } %>
-            <% }); %>
+    <div class="mt-4 text-white">
+        <p class="text-center">Essa é a parte reservada para mostrar alguns de meus jogos favoritos, e rankear-los.</p>
     </div>
-    <div class="row">
-        <div class="col">
-            <form action="/jogos/create" method="get">
-                <button type="submit" class="btn btn-outline-primary float-end">
-                    Adicionar
-                </button>
-            </form>
+
+
+    <div class="container text-white">
+        <div class="row">
+
+            <h4 class="text-center my-5">
+                Favoritos
+            </h4>
+
+            <% db_url.forEach(f=> { %>
+                <% if(f.is_deleted===false){%>
+                    <div class="col-4 my-3">
+                        <div class="card bg-dark text-white" style="width: 18rem;">
+                            <div class="d-flex align-items-center justify-content-center bg-primary"
+                                style="width: 286px; height: 286px; overflow: hidden;">
+                                <% if(f.image===0 || f.image==='' ){ %>
+                                    <img src="/images/no image.png" alt="Profile"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+                                    <% }else{ %>
+                                        <img src="<%= f.image %>" alt="Profile"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                        <% } %>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= f.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= f.description %>
+                                </p>
+                                <div class="row">
+                                    <div class="col-4"><a href="jogos/nome/<%= f.id %>"
+                                            class="btn btn-primary">Veja!</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="jogos/edit/<%= f.id %>" method="get">
+                                            <button type="submit" class="btn btn-warning">Editar</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-4">
+                                        <form action="/jogos/att/<%= f.id %>" method="post">
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }); %>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/jogos/create" method="get">
+                    <button type="submit" class="btn btn-outline-primary float-end">
+                        Adicionar
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<%- include('../components/layout_inf') %>
+    <%- include('../components/layout_inf') %>

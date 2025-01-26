@@ -41,12 +41,10 @@ router.get('/nome/:id', function (req, res, next) {
   // Renderiza a página com os dados do jogo correspondente
   res.render('modulos/veja', {
     title: k.title,
-    content: '../modulos/animes',
-    db_url: k // Passa os dados do anime para o template
+    content: '../modulos/jogos',
+    db_url: k // Passa os dados do jogo para o template
   });
 });
-
-
 
 router.get('/create', function (req, res, next) {
   res.render('modulos/create', {
@@ -77,7 +75,7 @@ router.post('/', function (req, res, next) {
     }
   };
 
-  db.push(newData); // Adiciona o novo anime ao array
+  db.push(newData); // Adiciona o novo jogo ao array
 
   saveDbData(db); // Salva os dados atualizados de volta no arquivo JSON
 
@@ -88,6 +86,61 @@ router.post('/', function (req, res, next) {
   });
 });
 
+router.post('/att/:id', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.params.id;
+  const k = db.find(item => item.id === parseInt(id));
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('jogo não encontrado: '+id);
+  }else{
+    k.is_deleted = true
+    saveDbData(db);
+    // Renderiza a página com os dados do jogo correspondente
+    res.redirect('/jogos')
+  }
+  
+});
+
+router.post('/edit', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.body.id;
+  const k = db.find(item => item.id === parseInt(id));
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('jogo não encontrado: '+id);
+  }else{
+      k.title = req.body.title,
+      k.description = req.body.description,
+      k.long_description.about.text = req.body.long_about_text
+      k.long_description.for_me.text = req.body.long_for_me_text
+    saveDbData(db);
+    // Renderiza a página com os dados do jogo correspondente
+    res.redirect('/jogos')
+  }
+});
+
+router.get('/edit/:id', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.params.id;
+  const k = db.find(item => item.id === parseInt(id));
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('jogo não encontrado: '+id);
+  }else{
+    // Renderiza a página com os dados do jogo correspondente
+    res.render('modulos/edit', {
+      page: "jogos",
+      title: 'Editando jogo '+k.title,
+      content: '../modulos/jogos',
+      db: k,
+      url: 'jogos', // Passa os dados de jogos para o template
+    });
+  }
+});
 
 module.exports = router;
 

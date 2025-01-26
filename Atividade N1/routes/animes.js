@@ -87,27 +87,60 @@ router.post('/', function (req, res, next) {
   });
 });
 
-router.put('/:id', function (req, res, next) {
+router.post('/att/:id', function (req, res, next) {
   const db = getDbData(); // Carregar os dados do JSON
   const id = req.params.id;
-  const k = db.find(item => item.id === id);
-
-  k.is_deleted = true
+  const k = db.find(item => item.id === parseInt(id));
 
   if (!k) {
     // Retorna 404 se o ID não for encontrado
-    return res.status(404).send('Anime não encontrado');
+    return res.status(404).send('Anime não encontrado: '+id);
+  }else{
+    k.is_deleted = true
+    saveDbData(db);
+    // Renderiza a página com os dados do anime correspondente
+    res.redirect('/animes')
   }
+  
+});
 
-  db.push(k); // Adiciona o novo anime ao array
+router.post('/edit', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.body.id;
+  const k = db.find(item => item.id === parseInt(id));
 
-  saveDbData(db);
-  // Renderiza a página com os dados do anime correspondente
-  res.render('modulos/animes', {
-    title: 'Animes',
-    content: '../modulos/animes',
-    db_url: db // Passa os dados de animes para o template
-  });
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('Anime não encontrado: '+id);
+  }else{
+      k.title = req.body.title,
+      k.description = req.body.description,
+      k.long_description.about.text = req.body.long_about_text
+      k.long_description.for_me.text = req.body.long_for_me_text
+    saveDbData(db);
+    // Renderiza a página com os dados do anime correspondente
+    res.redirect('/animes')
+  }
+});
+
+router.get('/edit/:id', function (req, res, next) {
+  const db = getDbData(); // Carregar os dados do JSON
+  const id = req.params.id;
+  const k = db.find(item => item.id === parseInt(id));
+
+  if (!k) {
+    // Retorna 404 se o ID não for encontrado
+    return res.status(404).send('Anime não encontrado: '+id);
+  }else{
+    // Renderiza a página com os dados do anime correspondente
+    res.render('modulos/edit', {
+      page: "animes",
+      title: 'Editando Anime '+k.title,
+      content: '../modulos/animes',
+      db: k,
+      url: 'animes', // Passa os dados de animes para o template
+    });
+  }
 });
 
 module.exports = router;
