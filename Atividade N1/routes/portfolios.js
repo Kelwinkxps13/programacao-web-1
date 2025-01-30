@@ -73,7 +73,8 @@ router.post('/', function (req, res, next) {
       for_me: {
         text: req.body.long_for_me_text
       }
-    }
+    },
+    is_deleted: false
   };
 
   db.push(newData); // Adiciona o novo portfolios ao array
