@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Projeto POO Swing",
     "description": "Esse é o projeto de finalização da matéria programação orientada a objetos 2023.2 do P3 de informática. Este aplicativo é uma urna eletrônica com sistema de login, cadastro e recuperação de senha.",
-    "image": "/images/portifolio/logo-creativerse.jpg",
+    "image": "/images/portfolio/logo-creativerse.jpg",
     "long_description": {
       "about": {
         "text": "Este projeto foi desenvolvido como parte da avaliação final da matéria de Programação Orientada a Objetos (POO) do curso técnico de informática. A proposta do projeto foi criar um sistema de urna eletrônica simulado, com uma interface gráfica amigável e que fosse capaz de gerenciar o login de usuários, realizar cadastros e permitir a recuperação de senhas. A aplicação foi construída usando Java Swing, explorando conceitos importantes como componentes gráficos, manipulação de eventos e controle de fluxo de dados. Através desse projeto, fui capaz de aplicar muitos dos conceitos fundamentais de POO, como classes, objetos, herança e polimorfismo."
@@ -18,7 +18,7 @@
     "id": 2,
     "title": "Projeto Final Curso PHP",
     "description": "O projeto consiste em fazer a tarefa do módulo 4 do curso, só que melhorada.",
-    "image": "/images/portifolio/foto-php.jpg",
+    "image": "/images/portfolio/foto-php.jpg",
     "long_description": {
       "about": {
         "text": "Este projeto é uma versão aprimorada de uma tarefa do módulo 4 do curso de PHP. O objetivo foi desenvolver uma aplicação web utilizando os conceitos aprendidos no curso, como CRUD (Create, Read, Update, Delete), validação de formulários e gerenciamento de sessões de usuário. Durante o desenvolvimento, busquei aplicar as melhores práticas de desenvolvimento, como a separação de responsabilidades entre a camada de apresentação (frontend) e a camada de lógica (backend). O projeto tem como base um sistema de cadastro de usuários, mas com a implementação de funcionalidades extras, como o gerenciamento de permissões e autenticação de usuários."
@@ -33,7 +33,7 @@
     "id": 3,
     "title": "Monitoraí",
     "description": "O aplicativo de monitoria para o Apple Foundation 2024.1. É um aplicativo voltado para auxiliar os monitores do IF.",
-    "image": "/images/portifolio/imagem-monitorai-salas.png",
+    "image": "/images/portfolio/imagem-monitorai-salas.png",
     "long_description": {
       "about": {
         "text": "Monitoraí é um aplicativo desenvolvido como parte do Apple Foundation Program, com o objetivo de facilitar a gestão das atividades dos monitores do IFCE. A proposta foi criar uma ferramenta digital que ajudasse os monitores a controlar seus horários, alunos, salas de aula e materiais de estudo de forma organizada e eficiente. O sistema também permite o gerenciamento de tarefas, como agendamento de aulas e notificações para os alunos, facilitando a comunicação entre monitores e alunos. Durante o desenvolvimento, apliquei diversos conceitos como banco de dados, controle de sessão, e integração de funcionalidades em um aplicativo funcional."
@@ -48,7 +48,7 @@
     "id": 4,
     "title": "Jogo RPG simples em Python",
     "description": "Projeto Abandonado! (por enquanto). Era para ser um jogo mundo aberto de RPG, só que totalmente em texto, semelhante ao The Oregon Trail.",
-    "image": "/images/portifolio/python.jpg",
+    "image": "/images/portfolio/python.jpg",
     "long_description": {
       "about": {
         "text": "Este projeto foi uma tentativa de criar um jogo de RPG de mundo aberto em Python, com foco em narrativa interativa e escolhas do jogador. A ideia era desenvolver uma experiência totalmente baseada em texto, onde o jogador tomaria decisões e enfrentaria desafios baseados em suas escolhas, semelhante ao clássico 'The Oregon Trail'. O jogo tinha a proposta de ser simples, mas com uma história envolvente e diferentes caminhos a serem seguidos conforme as escolhas do jogador. Embora o projeto tenha sido abandonado por enquanto, ele serviu como uma excelente oportunidade para aprender mais sobre lógica de jogos e estruturas de controle de fluxo em Python."

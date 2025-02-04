@@ -2,6 +2,25 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var fs = require('fs'); // Para manipulação do arquivo JSON
+const multer = require('multer');
+
+// Configuração do multer para salvar imagens na pasta correta
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, '../public/images/portfolio');
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true }); // Cria a pasta se não existir
+    }
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const uniqueName = `${Date.now()}-${Math.random().toString(36).substring(7)}${ext}`;
+    cb(null, uniqueName);
+  }
+});
+
+const upload = multer({ storage });
 
 // Caminho para o arquivo JSON
 const dbPath = path.join(__dirname, '../database', 'portfolios.json');
@@ -57,35 +76,26 @@ router.get('/create', function(req, res, next) {
   });
 });
 
-router.post('/', function (req, res, next) {
-  const db = getDbData(); // Carregar os dados do JSON
-  const lastId = Math.max(...db.map(u => u.id), 0); // Pegando o último id e incrementando
+router.post('/', upload.single('image'), (req, res) => {
+  const db = getDbData();
+  const lastId = Math.max(...db.map(u => u.id), 0);
 
   const newData = {
-    id: lastId + 1, // Incrementa o id
+    id: lastId + 1,
     title: req.body.title,
     description: req.body.description,
-    image: req.body.image,
+    image: req.file ? `/images/portfolio/${req.file.filename}` : null,
     long_description: {
-      about: {
-        text: req.body.long_about_text
-      },
-      for_me: {
-        text: req.body.long_for_me_text
-      }
+      about: { text: req.body.long_about_text },
+      for_me: { text: req.body.long_for_me_text }
     },
     is_deleted: false
   };
 
-  db.push(newData); // Adiciona o novo portfolios ao array
+  db.push(newData);
+  saveDbData(db);
 
-  saveDbData(db); // Salva os dados atualizados de volta no arquivo JSON
-
-  res.render('modulos/portfolios', { 
-    title: 'Portifólio', 
-    content: '../modulos/portfolios',
-    db_url: db // Passando os dados para o template
-  });
+  res.redirect('/portfolios');
 });
 
 router.post('/att/:id', function (req, res, next) {
@@ -105,22 +115,32 @@ router.post('/att/:id', function (req, res, next) {
   
 });
 
-router.post('/edit', function (req, res, next) {
+router.post('/edit', upload.single('image'), function (req, res, next) {
   const db = getDbData(); // Carregar os dados do JSON
   const id = req.body.id;
   const k = db.find(item => item.id === parseInt(id));
 
   if (!k) {
     // Retorna 404 se o ID não for encontrado
-    return res.status(404).send('portfolio não encontrado: '+id);
-  }else{
-      k.title = req.body.title,
-      k.description = req.body.description,
-      k.long_description.about.text = req.body.long_about_text
-      k.long_description.for_me.text = req.body.long_for_me_text
+    return res.status(404).send('portfolio não encontrado: ' + id);
+  } else {
+    // Atualiza os dados do portfolio
+    k.title = req.body.title;
+    k.description = req.body.description;
+    k.long_description.about.text = req.body.long_about_text;
+    k.long_description.for_me.text = req.body.long_for_me_text;
+
+    // Verifica se uma nova imagem foi enviada
+    if (req.file) {
+      // Se houver, salva a nova imagem e atualiza o caminho
+      k.image = `/images/portfolio/${req.file.filename}`;
+    }
+
+    // Salva os dados atualizados no arquivo JSON
     saveDbData(db);
-    // Renderiza a página com os dados do portfolio correspondente
-    res.redirect('/portfolios')
+
+    // Redireciona para a página de portfolios
+    res.redirect('/portfolios');
   }
 });
 
